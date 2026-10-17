@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unseen Places of Bangladesh</title>
+<meta name="description" content="Hidden rivers, hills, haors and islands across Bangladesh, with notes on how to reach them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --monsoon:#0F2E2C;
+  --mist:#EEF2EE;
+  --kingfisher:#1C8FB0;
+  --jute:#B88A3E;
+  --silt:#5E6F67;
+  --line:#CCD6CF;
+  --display:"Bricolage Grotesque","Segoe UI",Helvetica,Arial,sans-serif;
+  --body:"Newsreader",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--mist);color:var(--monsoon);font-family:var(--body);font-size:1.125rem;line-height:1.65}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--kingfisher);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem}
+
+/* Header */
+header{position:sticky;top:0;z-index:20;background:var(--mist);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.25rem;text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--kingfisher)}
+nav ul{display:flex;gap:1.5rem;list-style:none;font-family:var(--display);font-weight:500;font-size:.95rem}
+nav a{text-decoration:none;padding:.25rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-color:var(--jute)}
+.menu-btn{display:none;background:none;border:1px solid var(--monsoon);border-radius:6px;padding:.4rem .8rem;font:500 .9rem var(--display);color:inherit;cursor:pointer}
+
+/* Hero */
+.hero{background:var(--monsoon);color:var(--mist);position:relative;overflow:hidden}
+.hero .wrap{padding-top:5rem;padding-bottom:6rem;position:relative;z-index:1}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.8rem,9vw,7rem);line-height:.95;letter-spacing:-.04em;max-width:11ch}
+.hero p{max-width:34rem;margin-top:1.75rem;font-size:1.25rem;color:#C9D8D0}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.25rem}
+.btn{display:inline-block;font-family:var(--display);font-weight:700;font-size:1rem;padding:.8rem 1.4rem;border-radius:6px;text-decoration:none;border:2px solid var(--jute);background:var(--jute);color:var(--monsoon)}
+.btn:hover{background:#CFA454;border-color:#CFA454}
+.btn.ghost{background:transparent;color:var(--mist);border-color:#58716A}
+.btn.ghost:hover{border-color:var(--mist)}
+/* river lines in hero */
+.river{position:absolute;right:-5%;bottom:-10%;width:75%;max-width:900px;opacity:.5;pointer-events:none}
+.river path{fill:none;stroke:var(--kingfisher);stroke-width:2;stroke-linecap:round;stroke-dasharray:1800;stroke-dashoffset:1800;animation:flow 6s ease-out .3s forwards}
+.river path:nth-child(2){stroke:var(--jute);animation-delay:.9s}
+.river path:nth-child(3){stroke:#58716A;animation-delay:1.5s}
+@keyframes flow{to{stroke-dashoffset:0}}
+
+/* Sections */
+section{padding:5rem 0}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.05;letter-spacing:-.03em;max-width:18ch}
+.lede{max-width:36rem;margin-top:1rem;color:var(--silt)}
+
+/* Filters */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:2rem 0 2.25rem}
+.filters button{font:500 .95rem var(--display);padding:.5rem 1rem;border-radius:999px;border:1px solid var(--monsoon);background:transparent;color:var(--monsoon);cursor:pointer}
+.filters button:hover{background:#DCE6DF}
+.filters button[aria-pressed="true"]{background:var(--monsoon);color:var(--mist)}
+
+/* Place grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.75rem 1.5rem}
+.place[hidden]{display:none}
+.place a{text-decoration:none;display:block}
+/* Replace each .photo with <img src="images/your-photo.jpg" alt="..."> when you have photos */
+.photo{aspect-ratio:4/5;border-radius:4px;background:linear-gradient(160deg,var(--a),var(--b));position:relative;overflow:hidden}
+.photo::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(15,46,44,.55))}
+.place img{aspect-ratio:4/5;object-fit:cover;border-radius:4px}
+.place h3{font-family:var(--display);font-weight:700;font-size:1.3rem;margin-top:.8rem;letter-spacing:-.01em}
+.place:hover h3{color:var(--kingfisher)}
+.place .where{font-family:var(--display);font-size:.9rem;color:var(--silt)}
+.place p{font-size:1rem;margin-top:.35rem;line-height:1.5}
+
+/* Stories */
+.stories{background:#E1E9E3}
+.story-list{margin-top:2.5rem;border-top:1px solid var(--monsoon)}
+.story{display:grid;grid-template-columns:9rem 1fr;gap:1.5rem;padding:1.75rem 0;border-bottom:1px solid var(--line)}
+.story time{font-family:var(--display);font-size:.9rem;color:var(--silt);padding-top:.4rem}
+.story h3{font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:-.02em;line-height:1.2}
+.story h3 a{text-decoration:none}
+.story h3 a:hover{color:var(--kingfisher)}
+.story p{margin-top:.4rem;max-width:40rem;color:var(--silt)}
+
+/* Tips */
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin-top:2.5rem}
+.tip{border-left:3px solid var(--jute);padding-left:1.1rem}
+.tip h3{font-family:var(--display);font-weight:700;font-size:1.15rem}
+.tip p{font-size:1rem;margin-top:.3rem;color:var(--silt)}
+
+/* Subscribe + footer */
+.subscribe{background:var(--monsoon);color:var(--mist)}
+.subscribe h2{max-width:20ch}
+.subscribe p{color:#C9D8D0;margin-top:1rem;max-width:32rem}
+.sub-form{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem;max-width:34rem}
+.sub-form label{position:absolute;left:-9999px}
+.sub-form input{flex:1 1 220px;padding:.8rem 1rem;font:1rem var(--body);border-radius:6px;border:2px solid #58716A;background:transparent;color:var(--mist)}
+.sub-form input::placeholder{color:#8DA39A}
+.sub-form .btn{cursor:pointer;font-size:1rem}
+.msg{margin-top:.9rem;min-height:1.5em;color:var(--jute);font-family:var(--display);font-size:.95rem}
+footer{padding:2rem 0;font-family:var(--display);font-size:.9rem;color:var(--silt)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+
+@media (max-width:720px){
+  .menu-btn{display:block}
+  nav ul{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--mist);border-bottom:1px solid var(--line);padding:.5rem 1.25rem 1rem}
+  nav ul.open{display:flex}
+  nav li a{display:block;padding:.7rem 0}
+  .hero .wrap{padding-top:3.5rem;padding-bottom:4.5rem}
+  .story{grid-template-columns:1fr;gap:.25rem}
+  section{padding:3.5rem 0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .river path{animation:none;stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">Unseen<span>BD</span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav aria-label="Main">
+      <ul id="menu">
+        <li><a href="#places">Places</a></li>
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="#tips">Travel tips</a></li>
+        <li><a href="#subscribe">Newsletter</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <svg class="river" viewBox="0 0 900 500" aria-hidden="true">
+      <path d="M0 420 C150 330 220 470 380 380 S620 250 760 300 S860 180 900 120"/>
+      <path d="M0 470 C180 400 260 500 430 430 S650 320 780 360 S870 280 900 230"/>
+      <path d="M60 500 C200 450 300 500 460 470 S700 400 820 430 S890 380 900 340"/>
+    </svg>
+    <div class="wrap">
+      <h1>Bangladesh beyond the postcard</h1>
+      <p>Swamp forests that flood each monsoon, tea hills with no crowds, and river islands that most maps skip. Find a place, then go see it.</p>
+      <div class="btns">
+        <a class="btn" href="#places">Explore places</a>
+        <a class="btn ghost" href="#stories">Read the stories</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="places">
+    <div class="wrap">
+      <h2>Places worth the detour</h2>
+      <p class="lede">Filter by division to plan a trip around where you already are.</p>
+
+      <div class="filters" role="group" aria-label="Filter places by division">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="sylhet" aria-pressed="false">Sylhet</button>
+        <button type="button" data-filter="chattogram" aria-pressed="false">Chattogram</button>
+        <button type="button" data-filter="khulna" aria-pressed="false">Khulna</button>
+        <button type="button" data-filter="barishal" aria-pressed="false">Barishal</button>
+      </div>
+
+      <div class="grid">
+        <article class="place" data-region="sylhet">
+          <a href="#">
+            <div class="photo" style="--a:#2F7D5B;--b:#0F2E2C"></div>
+            <h3>Ratargul Swamp Forest</h3>
+            <div class="where">Gowainghat, Sylhet</div>
+            <p>A freshwater forest where you paddle between tree trunks in the rainy season.</p>
+          </a>
+        </article>
+
+        <article class="place" data-region="sylhet">
+          <a href="#">
+            <div class="photo" style="--a:#1C8FB0;--b:#12404A"></div>
+            <h3>Tanguar Haor</h3>
+            <div class="where">Tahirpur, Sunamganj</div>
+<p>A vast wetland of lakes and villages, busy with migratory birds in winter.</p>
+          </a>
+        </article>
+
+        <article class="place" data-region="sylhet">
+          <a href="#">
+            <div class="photo" style="--a:#3AA7A0;--b:#1B4B52"></div>
+            <h3>Lalakhal</h3>
+            <div class="where">Jaintiapur, Sylhet</div>
+            <p>A river of clear blue-green water winding through tea country and forested banks.</p>
+          </a>
+        </article>
+
+        <article class="place" data-region="chattogram">
+          <a href="#">
+            <div class="photo" style="--a:#6E8F5A;--b:#2A3F33"></div>
+            <h3>Nilgiri</h3>
+            <div class="where">Thanchi, Bandarban</div>
+            <p>A hilltop above the clouds, reached by a long road through Bandarban’s hills.</p>
+          </a>
+        </article>
+
+        <article class="place" data-region="chattogram">
+          <a href="#">
+            <div class="photo" style="--a:#B88A3E;--b:#5B3F1E"></div>
+            <h3>Mainamati</h3>
+            <div class="where">Cumilla</div>
+            <p>A ridge of Buddhist monastery ruins and quiet terracotta-tiled sites.</p>
+          </a>
+        </article>
+
+        <article class="place" data-region="chattogram">
+          <a href="#">
+            <div class="photo" style="--a:#4C9FC6;--b:#173A5A"></div>
+            <h3>Nijhum Dwip</h3>
+            <div class="where">Hatiya, Noakhali</div>
+            <p>A quiet island of mangrove, deer and open sky, with few visitors outside winter.</p>
+          </a>
+        </article>
+
+        <article class="place" data-region="khulna">
+          <a href="#">
+            <div class="photo" style="--a:#2D6A4F;--b:#081C15"></div>
+            <h3>The Sundarbans, slowly</h3>
+            <div class="where">Khulna and Satkhira</div>
+            <p>Skip the rush. Spend several nights on the water and let the tide set the schedule.</p>
+          </a>
+        </article>
+
+        <article class="place" data-region="barishal">
+          <a href="#">
+            <div class="photo" style="--a:#C98F57;--b:#4A2E4D"></div>
+            <h3>Kuakata at the edges</h3>
+            <div class="where">Patuakhali, Barishal</div>
+            <p>Watch both sunrise and sunset over the sea, then walk the quieter stretches of the beach.</p>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="stories" class="stories">
+    <div class="wrap">
+      <h2>Field notes from the road</h2>
+      <p class="lede">Short guides written after the trip, not before.</p>
+      <div class="story-list">
+        <article class="story">
+          <time datetime="2026-09-12">12 September 2026</time>
+          <div>
+            <h3><a href="#">Three days on a boat in Tanguar Haor</a></h3>
+            <p>What to book, what to pack, and how the water level changes everything about the trip.</p>
+          </div>
+        </article>
+        <article class="story">
+          <time datetime="2026-08-03">3 August 2026</time>
+          <div>
+            <h3><a href="#">Getting to Nilgiri without a tour group</a></h3>
+            <p>Buses, jeeps and permits, from Bandarban town to the top of the hill.</p>
+          </div>
+        </article>
+        <article class="story">
+          <time datetime="2026-06-20">20 June 2026</time>
+          <div>
+            <h3><a href="#">Ratargul in the rains: a paddler’s checklist</a></h3>
+            <p>Boat rates, the best hour to arrive, and why the forest looks different each week.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="tips">
+    <div class="wrap">
+      <h2>Before you go</h2>
+      <div class="tips">
+        <div class="tip">
+          <h3>Check the season</h3>
+          <p>Haors and swamp forests are fullest after the rains. Hills and islands are easier in winter.</p>
+        </div>
+        <div class="tip">
+          <h3>Carry cash</h3>
+          <p>Remote boat operators and guesthouses often don’t take cards or mobile payment.</p>
+        </div>
+        <div class="tip">
+          <h3>Hire local</h3>
+          <p>Use local boatmen and guides. They know the water, and the money stays in the village.</p>
+        </div>
+        <div class="tip">
+          <h3>Leave it clean</h3>
+          <p>Carry your waste out. Many of these places have no bins at all.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="subscribe" class="subscribe">
+    <div class="wrap">
+      <h2>One new place, every month</h2>
+      <p>A short email with a place, a map link and the best time to visit.</p>
+      <form class="sub-form" id="subForm" novalidate>
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+      <div class="msg" id="subMsg" role="status" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Unseen Places of Bangladesh</span>
+    <span>Made for slow travellers</span>
+  </div>
+</footer>
+
+<script>
+// Mobile menu
+(function(){
+  var btn=document.querySelector('.menu-btn'), menu=document.getElementById('menu');
+  btn.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+  });
+  menu.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){menu.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  });
+})();
+
+// Division filter
+(function(){
+  var buttons=document.querySelectorAll('.filters button');
+  var places=document.querySelectorAll('.place');
+  buttons.forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=b.dataset.filter;
+      buttons.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+      places.forEach(function(p){p.hidden=!(f==='all'||p.dataset.region===f);});
+    });
+  });
+})();
+
+// Newsletter form (front-end check only; connect to your email service later)
+(function(){
+  var form=document.getElementById('subForm'), msg=document.getElementById('subMsg'), input=document.getElementById('email');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+    msg.textContent=ok?'Thanks. You’re on the list.':'Enter a valid email address, like name@example.com.';
+    if(ok){form.reset();}
+  });
+})();
+</script>
+</body>
+</html>
