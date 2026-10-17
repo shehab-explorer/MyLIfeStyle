@@ -3,137 +3,162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Unseen Places of Bangladesh</title>
-<meta name="description" content="Hidden rivers, hills, haors and islands across Bangladesh, with notes on how to reach them.">
+<title>Unseen Bangladesh | Shehab’s life, travel and design</title>
+<meta name="description" content="Unseen Bangladesh is the personal site of Shehab, owner and designer. Travel stories, photos and everyday life.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<!--
+  PHOTOS: put your pictures in a folder named "images" next to this file and name them exactly:
+  shehab.jpg (circle portrait)
+  trip-1.jpg ... trip-6.jpg (journey photos)
+  life-1.jpg ... life-4.jpg (lifestyle photos)
+  If a photo is missing, a colour block shows instead, so the page never looks broken.
+-->
 <style>
 :root{
   --monsoon:#0F2E2C;
   --mist:#EEF2EE;
+  --mist2:#E1E9E3;
   --kingfisher:#1C8FB0;
   --jute:#B88A3E;
-  --silt:#5E6F67;
+  --silt:#56675F;
   --line:#CCD6CF;
   --display:"Bricolage Grotesque","Segoe UI",Helvetica,Arial,sans-serif;
   --body:"Newsreader",Georgia,"Times New Roman",serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--mist);color:var(--monsoon);font-family:var(--body);font-size:1.125rem;line-height:1.65}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--mist);color:var(--monsoon);font-family:var(--body);font-size:1.125rem;line-height:1.65;overflow-x:hidden}
 a{color:inherit}
 img{max-width:100%;display:block}
 :focus-visible{outline:3px solid var(--kingfisher);outline-offset:3px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+
+/* Photo frames: gradient shows if the image file is missing */
+.ph{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--a,#2F7D5B),var(--b,#0F2E2C));border-radius:6px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.5rem 1rem .9rem;color:#fff;font-family:var(--display);font-weight:700;line-height:1.2;background:linear-gradient(transparent,rgba(8,24,22,.8))}
+.ph figcaption small{display:block;font-weight:500;font-size:.85rem;opacity:.85;margin-top:.15rem}
+.zoom{cursor:zoom-in}
+
+/* Decorative dotted band */
+.band{height:18px;opacity:.7;background:radial-gradient(circle at 9px 9px,var(--jute) 2.5px,transparent 3px) 0 0/18px 18px}
 
 /* Header */
-header{position:sticky;top:0;z-index:20;background:var(--mist);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-family:var(--display);font-weight:800;font-size:1.25rem;text-decoration:none;letter-spacing:-.02em}
-.logo span{color:var(--kingfisher)}
-nav ul{display:flex;gap:1.5rem;list-style:none;font-family:var(--display);font-weight:500;font-size:.95rem}
+header{position:sticky;top:0;z-index:30;background:rgba(238,242,238,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px;position:relative}
+.logo{display:flex;align-items:center;gap:.65rem;font-family:var(--display);font-weight:800;font-size:1.2rem;text-decoration:none;letter-spacing:-.02em}
+.logo .dot{width:34px;height:34px;border-radius:50%;background:var(--monsoon);color:var(--mist);display:grid;place-items:center;font-size:1rem;border:2px solid var(--jute)}
+nav ul{display:flex;gap:1.6rem;list-style:none;font-family:var(--display);font-weight:500;font-size:.95rem}
 nav a{text-decoration:none;padding:.25rem 0;border-bottom:2px solid transparent}
 nav a:hover{border-color:var(--jute)}
-.menu-btn{display:none;background:none;border:1px solid var(--monsoon);border-radius:6px;padding:.4rem .8rem;font:500 .9rem var(--display);color:inherit;cursor:pointer}
+.menu-btn{display:none;background:none;border:1px solid var(--monsoon);border-radius:6px;padding:.4rem .85rem;font:500 .9rem var(--display);color:inherit;cursor:pointer}
 
 /* Hero */
 .hero{background:var(--monsoon);color:var(--mist);position:relative;overflow:hidden}
-.hero .wrap{padding-top:5rem;padding-bottom:6rem;position:relative;z-index:1}
-.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.8rem,9vw,7rem);line-height:.95;letter-spacing:-.04em;max-width:11ch}
-.hero p{max-width:34rem;margin-top:1.75rem;font-size:1.25rem;color:#C9D8D0}
-.btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.25rem}
-.btn{display:inline-block;font-family:var(--display);font-weight:700;font-size:1rem;padding:.8rem 1.4rem;border-radius:6px;text-decoration:none;border:2px solid var(--jute);background:var(--jute);color:var(--monsoon)}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(28,143,176,.35);pointer-events:none}
+.hero::before{width:760px;height:760px;left:-300px;bottom:-420px}
+.hero::after{width:520px;height:520px;right:-180px;top:-240px;border-color:rgba(184,138,62,.4)}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;padding-block:5rem 5.5rem;position:relative;z-index:1}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,7.5vw,5.6rem);line-height:.98;letter-spacing:-.04em}
+.hero p{max-width:32rem;margin-top:1.5rem;font-size:1.2rem;color:#C9D8D0}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.btn{display:inline-block;font-family:var(--display);font-weight:700;font-size:1rem;padding:.8rem 1.4rem;border-radius:6px;text-decoration:none;border:2px solid var(--jute);background:var(--jute);color:var(--monsoon);cursor:pointer}
 .btn:hover{background:#CFA454;border-color:#CFA454}
 .btn.ghost{background:transparent;color:var(--mist);border-color:#58716A}
 .btn.ghost:hover{border-color:var(--mist)}
-/* river lines in hero */
-.river{position:absolute;right:-5%;bottom:-10%;width:75%;max-width:900px;opacity:.5;pointer-events:none}
-.river path{fill:none;stroke:var(--kingfisher);stroke-width:2;stroke-linecap:round;stroke-dasharray:1800;stroke-dashoffset:1800;animation:flow 6s ease-out .3s forwards}
-.river path:nth-child(2){stroke:var(--jute);animation-delay:.9s}
-.river path:nth-child(3){stroke:#58716A;animation-delay:1.5s}
-@keyframes flow{to{stroke-dashoffset:0}}
+.btn.dark{background:var(--monsoon);border-color:var(--monsoon);color:var(--mist)}
+.btn.dark:hover{background:#1A4A47;border-color:#1A4A47}
+
+.portrait{position:relative;width:min(100%,340px);aspect-ratio:1;margin-inline:auto}
+.portrait::before{content:"";position:absolute;inset:-18px;border-radius:50%;border:2px dashed var(--jute)}
+.portrait::after{content:"";position:absolute;inset:-36px;border-radius:50%;border:1px solid rgba(28,143,176,.6)}
+.circle{position:absolute;inset:0;border-radius:50%;overflow:hidden;border:6px solid var(--mist);background:linear-gradient(160deg,#2F7D5B,#1C8FB0);display:grid;place-items:center;font:800 7rem var(--display);color:rgba(255,255,255,.85)}
+.circle img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);white-space:nowrap;background:var(--jute);color:var(--monsoon);font:700 .9rem var(--display);padding:.5rem 1.1rem;border-radius:999px;border:3px solid var(--monsoon)}
 
 /* Sections */
 section{padding:5rem 0}
-h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.05;letter-spacing:-.03em;max-width:18ch}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.05;letter-spacing:-.03em;max-width:20ch}
 .lede{max-width:36rem;margin-top:1rem;color:var(--silt)}
 
-/* Filters */
-.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:2rem 0 2.25rem}
-.filters button{font:500 .95rem var(--display);padding:.5rem 1rem;border-radius:999px;border:1px solid var(--monsoon);background:transparent;color:var(--monsoon);cursor:pointer}
-.filters button:hover{background:#DCE6DF}
-.filters button[aria-pressed="true"]{background:var(--monsoon);color:var(--mist)}
+/* About */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.about .text p+p{margin-top:1rem}
+.roles{display:grid;gap:1rem}
+.role{background:#fff;border:1px solid var(--line);border-left:5px solid var(--jute);border-radius:6px;padding:1.2rem 1.4rem}
+.role:nth-child(2){border-left-color:var(--kingfisher)}
+.role h3{font-family:var(--display);font-weight:700;font-size:1.25rem}
+.role p{font-size:1rem;color:var(--silt);margin-top:.25rem}
 
-/* Place grid */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.75rem 1.5rem}
-.place[hidden]{display:none}
-.place a{text-decoration:none;display:block}
-/* Replace each .photo with <img src="images/your-photo.jpg" alt="..."> when you have photos */
-.photo{aspect-ratio:4/5;border-radius:4px;background:linear-gradient(160deg,var(--a),var(--b));position:relative;overflow:hidden}
-.photo::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(15,46,44,.55))}
-.place img{aspect-ratio:4/5;object-fit:cover;border-radius:4px}
-.place h3{font-family:var(--display);font-weight:700;font-size:1.3rem;margin-top:.8rem;letter-spacing:-.01em}
-.place:hover h3{color:var(--kingfisher)}
-.place .where{font-family:var(--display);font-size:.9rem;color:var(--silt)}
-.place p{font-size:1rem;margin-top:.35rem;line-height:1.5}
+/* Journeys */
+.trips{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:2.5rem}
+.trips .ph{aspect-ratio:4/5}
+.trips .ph:nth-child(3n+2){aspect-ratio:1}
 
-/* Stories */
-.stories{background:#E1E9E3}
-.story-list{margin-top:2.5rem;border-top:1px solid var(--monsoon)}
-.story{display:grid;grid-template-columns:9rem 1fr;gap:1.5rem;padding:1.75rem 0;border-bottom:1px solid var(--line)}
-.story time{font-family:var(--display);font-size:.9rem;color:var(--silt);padding-top:.4rem}
-.story h3{font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:-.02em;line-height:1.2}
-.story h3 a{text-decoration:none}
-.story h3 a:hover{color:var(--kingfisher)}
-.story p{margin-top:.4rem;max-width:40rem;color:var(--silt)}
+/* Lifestyle */
+.life{background:var(--mist2)}
+.life-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2.5rem}
+.card{display:grid;grid-template-columns:140px 1fr;gap:1.2rem;background:#fff;border-radius:8px;padding:1rem;border:1px solid var(--line);align-items:center}
+.card .ph{aspect-ratio:1;border-radius:50%}
+.card h3{font-family:var(--display);font-weight:700;font-size:1.25rem}
+.card p{font-size:1rem;color:var(--silt);margin-top:.2rem;line-height:1.5}
 
-/* Tips */
-.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin-top:2.5rem}
-.tip{border-left:3px solid var(--jute);padding-left:1.1rem}
-.tip h3{font-family:var(--display);font-weight:700;font-size:1.15rem}
-.tip p{font-size:1rem;margin-top:.3rem;color:var(--silt)}
+/* Quote */
+.quote{background:var(--monsoon);color:var(--mist);text-align:center}
+.quote blockquote{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,4vw,2.6rem);line-height:1.2;letter-spacing:-.02em;max-width:24ch;margin-inline:auto}
+.quote cite{display:block;margin-top:1.25rem;font-style:normal;font-family:var(--body);color:var(--jute);font-size:1.05rem}
 
-/* Subscribe + footer */
-.subscribe{background:var(--monsoon);color:var(--mist)}
-.subscribe h2{max-width:20ch}
-.subscribe p{color:#C9D8D0;margin-top:1rem;max-width:32rem}
-.sub-form{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem;max-width:34rem}
-.sub-form label{position:absolute;left:-9999px}
-.sub-form input{flex:1 1 220px;padding:.8rem 1rem;font:1rem var(--body);border-radius:6px;border:2px solid #58716A;background:transparent;color:var(--mist)}
-.sub-form input::placeholder{color:#8DA39A}
-.sub-form .btn{cursor:pointer;font-size:1rem}
-.msg{margin-top:.9rem;min-height:1.5em;color:var(--jute);font-family:var(--display);font-size:.95rem}
-footer{padding:2rem 0;font-family:var(--display);font-size:.9rem;color:var(--silt)}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+/* Contact */
+.contact-box{display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between}
+.links{display:flex;flex-wrap:wrap;gap:.75rem}
+footer{background:var(--monsoon);color:#9DB3AA;padding:1.75rem 0;font-family:var(--display);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem}
 
+/* Lightbox */
+dialog{border:none;background:transparent;max-width:94vw;max-height:94vh;margin:auto}
+dialog::backdrop{background:rgba(5,15,14,.88)}
+dialog img{max-height:90vh;border-radius:6px;cursor:zoom-out}
+
+/* Responsive */
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:4rem;text-align:center;padding-block:3.5rem 5rem}
+  .hero p{margin-inline:auto}
+  .btns{justify-content:center}
+  .portrait{width:min(78%,300px);order:-1}
+  .about{grid-template-columns:1fr;gap:2rem}
+}
 @media (max-width:720px){
   .menu-btn{display:block}
-  nav ul{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--mist);border-bottom:1px solid var(--line);padding:.5rem 1.25rem 1rem}
+  nav ul{display:none;position:absolute;top:64px;left:-1.25rem;right:-1.25rem;flex-direction:column;gap:0;background:var(--mist);border-bottom:1px solid var(--line);padding:.5rem 1.25rem 1rem}
   nav ul.open{display:flex}
-  nav li a{display:block;padding:.7rem 0}
-  .hero .wrap{padding-top:3.5rem;padding-bottom:4.5rem}
-  .story{grid-template-columns:1fr;gap:.25rem}
+  nav li a{display:block;padding:.7rem 0;border:none}
   section{padding:3.5rem 0}
 }
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .river path{animation:none;stroke-dashoffset:0}
+@media (max-width:420px){
+  .card{grid-template-columns:96px 1fr;gap:.9rem}
+  .badge{font-size:.8rem}
 }
+@media (min-width:1500px){
+  body{font-size:1.2rem}
+  .wrap{width:min(1280px,100% - 4rem)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="#top">Unseen<span>BD</span></a>
+    <a class="logo" href="#top"><span class="dot">S</span>Unseen Bangladesh</a>
     <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
     <nav aria-label="Main">
       <ul id="menu">
-        <li><a href="#places">Places</a></li>
-        <li><a href="#stories">Stories</a></li>
-        <li><a href="#tips">Travel tips</a></li>
-        <li><a href="#subscribe">Newsletter</a></li>
+        <li><a href="#about">About Shehab</a></li>
+        <li><a href="#journeys">Journeys</a></li>
+        <li><a href="#lifestyle">Lifestyle</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -141,184 +166,115 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
 
 <main id="top">
   <div class="hero">
-    <svg class="river" viewBox="0 0 900 500" aria-hidden="true">
-      <path d="M0 420 C150 330 220 470 380 380 S620 250 760 300 S860 180 900 120"/>
-      <path d="M0 470 C180 400 260 500 430 430 S650 320 780 360 S870 280 900 230"/>
-      <path d="M60 500 C200 450 300 500 460 470 S700 400 820 430 S890 380 900 340"/>
-    </svg>
     <div class="wrap">
-      <h1>Shehab always likes natureal beauty.</h1>
-      <p>Swamp forests that flood each monsoon, tea hills with no crowds, and river islands that most maps skip. Find a place, then go see it.</p>
-      <div class="btns">
-        <a class="btn" href="#places">Explore unseen  places</a>
-        <a class="btn ghost" href="#stories">Read the stories</a>
+      <div>
+        <h1>Hi, I’m Shehab. This is my Bangladesh.</h1>
+        <p>I own and design Unseen Bangladesh. It is where I share the places I travel to, the photos I take and the way I live from day to day.</p>
+        <div class="btns">
+          <a class="btn" href="#journeys">See my journeys</a>
+          <a class="btn ghost" href="#about">Meet Shehab</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <div class="circle">S<img src="images/shehab.png" alt="Portrait of Shehab" onerror="this.remove()"></div>
+        <div class="badge">Owner and Designer</div>
       </div>
     </div>
   </div>
+  <div class="band" aria-hidden="true"></div>
 
-  <section id="places">
-    <div class="wrap">
-      <h2>Places worth the detour</h2>
-      <p class="lede">Filter by division to plan  yours  trip around where you already are.</p>
-
-      <div class="filters" role="group" aria-label="Filter places by division">
-        <button type="button" data-filter="all" aria-pressed="true">All</button>
-        <button type="button" data-filter="sylhet" aria-pressed="false">Sylhet</button>
-        <button type="button" data-filter="chattogram" aria-pressed="false">Chattogram</button>
-        <button type="button" data-filter="khulna" aria-pressed="false">Khulna</button>
-        <button type="button" data-filter="barishal" aria-pressed="false">Barishal</button>
+  <section id="about">
+    <div class="wrap about">
+      <div class="text">
+        <h2>The person behind the site</h2>
+        <p class="lede">Every page here is made by one person.</p>
+        <p style="margin-top:1rem">I’m Shehab. I started Unseen Bangladesh to keep a record of the quiet corners I find while travelling, and to show them the way I see them. I write the stories, take the photos and design every page myself.</p>
+        <p>Edit this paragraph with your own story: where you grew up, what you do, and why you travel.</p>
       </div>
-
-      <div class="grid">
-        <article class="place" data-region="sylhet">
-          <a href="#">
-            <div class="photo" style="--a:#2F7D5B;--b:#0F2E2C"></div>
-            <h3>Ratargul Swamp Forest</h3>
-            <div class="where">Gowainghat, Sylhet</div>
-            <p>A freshwater forest where you paddle between tree trunks in the rainy season.</p>
-          </a>
-        </article>
-
-        <article class="place" data-region="sylhet">
-          <a href="#">
-            <div class="photo" style="--a:#1C8FB0;--b:#12404A"></div>
-            <h3>Tanguar Haor</h3>
-            <div class="where">Tahirpur, Sunamganj</div>
-<p>A vast wetland of lakes and villages, busy with migratory birds in winter.</p>
-          </a>
-        </article>
-
-        <article class="place" data-region="sylhet">
-          <a href="#">
-            <div class="photo" style="--a:#3AA7A0;--b:#1B4B52"></div>
-            <h3>Lalakhal</h3>
-            <div class="where">Jaintiapur, Sylhet</div>
-            <p>A river of clear blue-green water winding through tea country and forested banks.</p>
-          </a>
-        </article>
-
-        <article class="place" data-region="chattogram">
-          <a href="#">
-            <div class="photo" style="--a:#6E8F5A;--b:#2A3F33"></div>
-            <h3>Nilgiri</h3>
-            <div class="where">Thanchi, Bandarban</div>
-            <p>A hilltop above the clouds, reached by a long road through Bandarban’s hills.</p>
-          </a>
-        </article>
-
-        <article class="place" data-region="chattogram">
-          <a href="#">
-            <div class="photo" style="--a:#B88A3E;--b:#5B3F1E"></div>
-            <h3>Mainamati</h3>
-            <div class="where">Cumilla</div>
-            <p>A ridge of Buddhist monastery ruins and quiet terracotta-tiled sites.</p>
-          </a>
-        </article>
-
-        <article class="place" data-region="chattogram">
-          <a href="#">
-            <div class="photo" style="--a:#4C9FC6;--b:#173A5A"></div>
-            <h3>Nijhum Dwip</h3>
-            <div class="where">Hatiya, Noakhali</div>
-            <p>A quiet island of mangrove, deer and open sky, with few visitors outside winter.</p>
-          </a>
-        </article>
-
-        <article class="place" data-region="khulna">
-          <a href="#">
-            <div class="photo" style="--a:#2D6A4F;--b:#081C15"></div>
-            <h3>The Sundarbans, slowly</h3>
-            <div class="where">Khulna and Satkhira</div>
-            <p>Skip the rush. Spend several nights on the water and let the tide set the schedule.</p>
-          </a>
-        </article>
-
-        <article class="place" data-region="barishal">
-          <a href="#">
-            <div class="photo" style="--a:#C98F57;--b:#4A2E4D"></div>
-            <h3>Kuakata at the edges</h3>
-            <div class="where">Patuakhali, Barishal</div>
-            <p>Watch both sunrise and sunset over the sea and  walk the quieter stretches of the beach.</p>
-          </a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="stories" class="stories">
-    <div class="wrap">
-      <h2>Field notes from the road</h2>
-      <p class="lede">Short guides written after the trip, not before.</p>
-      <div class="story-list">
-        <article class="story">
-          <time datetime="2026-09-12">12 September 2026</time>
-          <div>
-            <h3><a href="#">Three days on a boat in Tanguar Haor</a></h3>
-            <p>What to book, what to pack, and how the water level changes everything about the trip.</p>
-          </div>
-        </article>
-        <article class="story">
-          <time datetime="2026-08-03">3 August 2026</time>
-          <div>
-            <h3><a href="#">Getting to Nilgiri without a tour group</a></h3>
-            <p>Buses, jeeps and permits, from Bandarban town to the top of the hill.</p>
-          </div>
-        </article>
-        <article class="story">
-          <time datetime="2026-06-20">20 June 2026</time>
-          <div>
-            <h3><a href="#">Ratargul in the rains: a paddler’s checklist</a></h3>
-            <p>Boat rates, the best hour to arrive, and why the forest looks different each week.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="tips">
-    <div class="wrap">
-      <h2>Before you go</h2>
-      <div class="tips">
-        <div class="tip">
-          <h3>Check the season</h3>
-          <p>Haors and swamp forests are fullest after the rains. Hills and islands are easier in winter.</p>
+      <div class="roles">
+        <div class="role">
+          <h3>Owner</h3>
+          <p>I run Unseen Bangladesh and decide what goes on it, from the routes to the stories.</p>
         </div>
-        <div class="tip">
-          <h3>Carry cash</h3>
-          <p>Remote boat operators and guesthouses often don’t take cards or mobile payment.</p>
-        </div>
-        <div class="tip">
-          <h3>Hire local</h3>
-          <p>Use local boatmen and guides. They know the water, and the money stays in the village.</p>
-        </div>
-        <div class="tip">
-          <h3>Leave it clean</h3>
-          <p>Carry your waste out. Many of these places have no bins at all.</p>
+        <div class="role">
+          <h3>Designer</h3>
+          <p>I design the look of the site, the layouts, the colours and how each page feels on a phone or a big screen.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="subscribe" class="subscribe">
+  <section id="journeys" style="background:var(--mist2)">
     <div class="wrap">
-      <h2>One new place, every month</h2>
-      <p>A short email with a place, a map link and the best time to visit.</p>
-      <form class="sub-form" id="subForm" novalidate>
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
-        <button class="btn" type="submit">Subscribe</button>
-      </form>
-      <div class="msg" id="subMsg" role="status" aria-live="polite"></div>
+      <h2>Places I’ve been</h2>
+      <p class="lede">Tap a photo to see it larger.</p>
+      <div class="trips">
+        <figure class="ph zoom" style="--a:#2F7D5B;--b:#0F2E2C"><img src="images/trip-1.jpg" alt="Ratargul Swamp Forest" loading="lazy" onerror="this.remove()"><figcaption>Ratargul Swamp Forest<small>Sylhet</small></figcaption></figure>
+        <figure class="ph zoom" style="--a:#1C8FB0;--b:#12404A"><img src="images/trip-2.jpg" alt="Tanguar Haor" loading="lazy" onerror="this.remove()"><figcaption>Tanguar Haor<small>Sunamganj</small></figcaption></figure>
+        <figure class="ph zoom" style="--a:#6E8F5A;--b:#2A3F33"><img src="images/trip-3.jpg" alt="Nilgiri hills" loading="lazy" onerror="this.remove()"><figcaption>Nilgiri<small>Bandarban</small></figcaption></figure>
+        <figure class="ph zoom" style="--a:#4C9FC6;--b:#173A5A"><img src="images/trip-4.jpg" alt="Nijhum Dwip" loading="lazy" onerror="this.remove()"><figcaption>Nijhum Dwip<small>Noakhali</small></figcaption></figure>
+        <figure class="ph zoom" style="--a:#2D6A4F;--b:#081C15"><img src="images/trip-5.jpg" alt="The Sundarbans" loading="lazy" onerror="this.remove()"><figcaption>The Sundarbans<small>Khulna</small></figcaption></figure>
+        <figure class="ph zoom" style="--a:#3AA7A0;--b:#1B4B52"><img src="images/trip-6.jpg" alt="Lalakhal" loading="lazy" onerror="this.remove()"><figcaption>Lalakhal<small>Sylhet</small></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="lifestyle" class="life" style="background:var(--mist)">
+    <div class="wrap">
+      <h2>How I live, day to day</h2>
+      <p class="lede">Travel is only part of it. These are the things that fill the rest of my days.</p>
+      <div class="life-grid">
+        <div class="card">
+          <figure class="ph zoom" style="--a:#B88A3E;--b:#5B3F1E"><img src="images/tonu.png" alt="Shehab travelling" loading="lazy" onerror="this.remove()"></figure>
+          <div><h3>First travel</h3><h5><font color="0000ff">Tonusree</font></h5><p>Local buses, small boats and long walks, so I actually see where I am.</p></div>
+        </div>
+        <div class="card">
+          <figure class="ph zoom" style="--a:#1C8FB0;--b:#173A5A"><img src="images/mahfuzur.png" alt="Shehab taking photographs" loading="lazy" onerror="this.remove()"></figure>
+          <div><h3>Photography</h3><h5><font color="0000ff">Md: Mahfuzur</font></h5><p>I carry a camera everywhere and shoot what the light gives me.</p></div>
+        </div>
+        <div class="card">
+          <figure class="ph zoom" style="--a:#C98F57;--b:#4A2E4D"><img src="images/Tajmir.png" alt="Local food" loading="lazy" onerror="this.remove()"></figure>
+          <div><h3>Local food</h3><p>Tea stalls, river fish and village kitchens, always the first thing I look for.</p></div>
+        </div>
+        <div class="card">
+          <figure class="ph zoom" style="--a:#2F7D5B;--b:#0F2E2C"><img src="images/imran.jpg" alt="Shehab designing" loading="lazy" onerror="this.remove()"></figure>
+          <div><h3>Designer</h3><h5><font color="#0000ff">Md: Imran Hossain</font></h5><p>Back home I sketch and build, from this website to everything else I make.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="wrap">
+      <blockquote>The best places are the ones nobody told me about.</blockquote>
+      <cite>Shehab</cite>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact-box">
+      <div>
+        <h2>Say hello</h2>
+        <p class="lede">Questions about a route, a photo or a project? Write to me.</p>
+      </div>
+      <div class="links">
+        <a class="btn dark" href="mailto:shehab10109@gmail.com">Email Shehab</a>
+        <a class="btn ghost" style="color:var(--monsoon);border-color:var(--monsoon)" href="#">Facebook</a>
+        <a class="btn ghost" style="color:var(--monsoon);border-color:var(--monsoon)" href="#">Instagram</a>
+      </div>
     </div>
   </section>
 </main>
 
+<div class="band" aria-hidden="true"></div>
 <footer>
   <div class="wrap">
-    <span>© 2026 Unseen Places of Bangladesh</span>
-    <span>Made for slow travellers</span>
+    <span>© 2026 Unseen Bangladesh</span>
+    <span>Owned and designed by Shehab</span>
   </div>
 </footer>
+
+<dialog id="viewer" aria-label="Photo viewer"><img id="viewerImg" alt=""></dialog>
 
 <script>
 // Mobile menu
@@ -333,28 +289,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
   });
 })();
 
-// Division filter
+// Click a photo to view it larger
 (function(){
-  var buttons=document.querySelectorAll('.filters button');
-  var places=document.querySelectorAll('.place');
-  buttons.forEach(function(b){
-    b.addEventListener('click',function(){
-      var f=b.dataset.filter;
-      buttons.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
-      places.forEach(function(p){p.hidden=!(f==='all'||p.dataset.region===f);});
+  var dlg=document.getElementById('viewer'), big=document.getElementById('viewerImg');
+  document.querySelectorAll('.zoom').forEach(function(f){
+    f.addEventListener('click',function(){
+      var img=f.querySelector('img');
+      if(!img||!dlg.showModal) return;
+      big.src=img.currentSrc||img.src;
+      big.alt=img.alt;
+      dlg.showModal();
     });
   });
-})();
-
-// Newsletter form (front-end check only; connect to your email service later)
-(function(){
-  var form=document.getElementById('subForm'), msg=document.getElementById('subMsg'), input=document.getElementById('email');
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
-    msg.textContent=ok?'Thanks. You’re on the list.':'Enter a valid email address, like name@example.com.';
-    if(ok){form.reset();}
-  });
+  dlg.addEventListener('click',function(){dlg.close();});
 })();
 </script>
 </body>
